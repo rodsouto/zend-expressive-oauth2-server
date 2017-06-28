@@ -13,7 +13,7 @@ use League\OAuth2\Server\Entities\AuthCodeEntityInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="OAuth2Server\Entity\Repository\AuthCodeRepository")
+ * @ORM\Entity(repositoryClass="OAuth2Server\Repository\AuthCodeRepository")
  * @ORM\Table(name="oauth_auth_code")
  */
 class AuthCode implements AuthCodeEntityInterface

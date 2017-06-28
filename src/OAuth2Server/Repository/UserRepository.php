@@ -7,7 +7,7 @@
  * @link        https://github.com/biberlabs/zend-expressive-oauth2-server
  */
 
-namespace OAuth2Server\Entity\Repository;
+namespace OAuth2Server\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use OAuth2Server\Entity\User;

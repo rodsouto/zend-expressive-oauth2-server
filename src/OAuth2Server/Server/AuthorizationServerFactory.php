@@ -9,12 +9,11 @@
 
 namespace OAuth2Server\Server;
 
-use Doctrine\ORM\EntityManager;
 use Interop\Container\ContainerInterface;
 use League\OAuth2\Server\AuthorizationServer;
-use OAuth2Server\Entity\AccessToken;
-use OAuth2Server\Entity\Client;
-use OAuth2Server\Entity\Scope;
+use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
+use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
+use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
 
 class AuthorizationServerFactory
 {
@@ -25,12 +24,9 @@ class AuthorizationServerFactory
         $config = $container->get('config');
         $authConfig = $config['oauth2'];
 
-        $clientRepository = $container->get(EntityManager::class)
-            ->getRepository(Client::class);
-        $scopeRepository = $container->get(EntityManager::class)
-            ->getRepository(Scope::class);
-        $accessTokenRepository = $container->get(EntityManager::class)
-            ->getRepository(AccessToken::class);
+        $clientRepository = $container->get(ClientRepositoryInterface::class);
+        $scopeRepository = $container->get(ScopeRepositoryInterface::class);
+        $accessTokenRepository = $container->get(AccessTokenRepositoryInterface::class);
 
         //TODO: check for config existing
         $privateKeyPath = $authConfig['certificates']['private'];

@@ -13,7 +13,7 @@ use League\OAuth2\Server\Entities\UserEntityInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="OAuth2Server\Entity\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="OAuth2Server\Repository\UserRepository")
  * @ORM\Table(name="oauth_user")
  */
 class User implements UserEntityInterface

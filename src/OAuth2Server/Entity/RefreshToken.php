@@ -14,7 +14,7 @@ use League\OAuth2\Server\Entities\Traits\RefreshTokenTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="OAuth2Server\Entity\Repository\RefreshTokenRepository")
+ * @ORM\Entity(repositoryClass="OAuth2Server\Repository\RefreshTokenRepository")
  * @ORM\Table(name="oauth_refresh_token")
  */
 class RefreshToken implements RefreshTokenEntityInterface

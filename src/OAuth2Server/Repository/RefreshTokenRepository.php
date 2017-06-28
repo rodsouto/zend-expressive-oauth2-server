@@ -7,13 +7,12 @@
  * @link        https://github.com/biberlabs/zend-expressive-oauth2-server
  */
 
-namespace OAuth2Server\Entity\Repository;
+namespace OAuth2Server\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use League\OAuth2\Server\Entities\RefreshTokenEntityInterface;
 use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;
 use OAuth2Server\Entity\RefreshToken as RefreshTokenEntity;
-use OAuth2Server\Entity\RefreshToken;
 
 class RefreshTokenRepository extends EntityRepository implements RefreshTokenRepositoryInterface
 {
@@ -23,7 +22,7 @@ class RefreshTokenRepository extends EntityRepository implements RefreshTokenRep
     public function persistNewRefreshToken(RefreshTokenEntityInterface $refreshTokenEntity)
     {
         /**
-         * @var RefreshToken $refreshTokenEntity
+         * @var RefreshTokenRepository $refreshTokenEntity
          */
         $this->_em->persist($refreshTokenEntity);
         $this->_em->flush($refreshTokenEntity);

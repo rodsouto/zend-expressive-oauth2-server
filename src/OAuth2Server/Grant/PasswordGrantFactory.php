@@ -11,17 +11,16 @@ namespace OAuth2Server\Grant;
 
 use Interop\Container\ContainerInterface;
 use League\OAuth2\Server\Grant\PasswordGrant;
-use OAuth2Server\Entity\RefreshToken;
-use OAuth2Server\Entity\User;
-use Doctrine\ORM\EntityManager;
+use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;
+use League\OAuth2\Server\Repositories\UserRepositoryInterface;
 
 class PasswordGrantFactory
 {
     public function __invoke(ContainerInterface $container)
     {
         $grant = new PasswordGrant(
-            $container->get(EntityManager::class)->getRepository(User::class),           // instance of UserRepositoryInterface
-            $container->get(EntityManager::class)->getRepository(RefreshToken::class)    // instance of RefreshTokenRepositoryInterface
+            $container->get(UserRepositoryInterface::class),
+            $container->get(RefreshTokenRepositoryInterface::class)
         );
         $grant->setRefreshTokenTTL(new \DateInterval('P1M')); // refresh tokens will expire after 1 month
 

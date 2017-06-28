@@ -13,7 +13,7 @@ use League\OAuth2\Server\Entities\ScopeEntityInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="OAuth2Server\Entity\Repository\ScopeRepository")
+ * @ORM\Entity(repositoryClass="OAuth2Server\Repository\ScopeRepository")
  * @ORM\Table(name="oauth_scope")
  */
 class Scope implements ScopeEntityInterface

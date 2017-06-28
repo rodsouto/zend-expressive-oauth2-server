@@ -7,12 +7,11 @@
  * @link        https://github.com/biberlabs/zend-expressive-oauth2-server
  */
 
-namespace OAuth2Server\Entity\Repository;
+namespace OAuth2Server\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
 use OAuth2Server\Entity\Client as ClientEntity;
-use OAuth2Server\Entity\Client;
 
 class ClientRepository extends EntityRepository implements ClientRepositoryInterface
 {

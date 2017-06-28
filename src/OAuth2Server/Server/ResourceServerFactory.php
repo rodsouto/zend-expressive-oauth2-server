@@ -9,10 +9,9 @@
 
 namespace OAuth2Server\Server;
 
-use Doctrine\ORM\EntityManager;
 use Interop\Container\ContainerInterface;
+use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
 use League\OAuth2\Server\ResourceServer;
-use OAuth2Server\Entity\AccessToken;
 
 class ResourceServerFactory
 {
@@ -21,8 +20,7 @@ class ResourceServerFactory
         $config = $container->get('config');
 
         return new ResourceServer(
-            $clientRepository = $container->get(EntityManager::class)
-                ->getRepository(AccessToken::class),
+            $clientRepository = $container->get(AccessTokenRepositoryInterface::class),
             $config['oauth2']['certificates']['public']
         );
     }
