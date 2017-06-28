@@ -22,7 +22,7 @@ class RefreshTokenRepository extends EntityRepository implements RefreshTokenRep
     public function persistNewRefreshToken(RefreshTokenEntityInterface $refreshTokenEntity)
     {
         /**
-         * @var RefreshTokenRepository $refreshTokenEntity
+         * @var RefreshTokenEntity $refreshTokenEntity
          */
         $this->_em->persist($refreshTokenEntity);
         $this->_em->flush($refreshTokenEntity);
