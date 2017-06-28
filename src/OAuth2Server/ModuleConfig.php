@@ -59,7 +59,7 @@ class ModuleConfig
                     'allowed_methods' => ['GET'],
                 ],
                 [
-                    'name' => 'authorize',
+                    'name' => 'oauth2.authorize',
                     'path' => '/authorize',
                     'middleware' => [
                         \OAuth2Server\Action\AuthorizeAction::class,
@@ -67,7 +67,7 @@ class ModuleConfig
                     'allowed_methods' => ['GET'],
                 ],
                 [
-                    'name' => 'access_token',
+                    'name' => 'oauth2.access_token',
                     'path' => '/access_token',
                     'middleware' => [
                         \OAuth2Server\Action\AccessTokenAction::class,
