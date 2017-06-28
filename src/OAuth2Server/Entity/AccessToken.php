@@ -11,6 +11,7 @@ namespace OAuth2Server\Entity;
 
 use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
 use Doctrine\ORM\Mapping as ORM;
+use League\OAuth2\Server\Entities\ScopeEntityInterface;
 
 
 /**

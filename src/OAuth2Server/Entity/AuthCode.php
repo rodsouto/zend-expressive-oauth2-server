@@ -11,6 +11,7 @@ namespace OAuth2Server\Entity;
 
 use League\OAuth2\Server\Entities\AuthCodeEntityInterface;
 use Doctrine\ORM\Mapping as ORM;
+use League\OAuth2\Server\Entities\ScopeEntityInterface;
 
 /**
  * @ORM\Entity(repositoryClass="OAuth2Server\Repository\AuthCodeRepository")

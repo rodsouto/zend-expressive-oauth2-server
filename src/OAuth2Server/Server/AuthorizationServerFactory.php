@@ -17,6 +17,8 @@ use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
 
 class AuthorizationServerFactory
 {
+
+    /** @var AuthorizationServer */
     protected $server;
 
     public function __invoke(ContainerInterface $container)
@@ -46,7 +48,7 @@ class AuthorizationServerFactory
         return $this->server;
     }
 
-    private function enableGrantTypes($config, $container)
+    private function enableGrantTypes($config, ContainerInterface $container)
     {
         //TODO: Check Exiting of Keys
         if (isset($config['grants']['password'])) {
