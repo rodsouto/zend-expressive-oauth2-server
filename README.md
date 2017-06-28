@@ -23,6 +23,12 @@ $app->route('/access_token', OAuth2Server\Action\AccessTokenAction::class, ['POS
 $app->route('/authorize', OAuth2Server\Action\AuthorizeAction::class, ['GET'], 'oauth2.authorize');
 ```
 
+## Required middlewares
+
+```php
+$app->pipe(\OAuth2Server\Middleware\ResourceServerMiddleware::class);
+```
+
 ## Requests
 
 Check the [The PHP League Example Page](https://github.com/thephpleague/oauth2-server/tree/master/examples)

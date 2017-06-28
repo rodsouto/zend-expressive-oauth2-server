@@ -10,7 +10,7 @@
 namespace OAuth2Server\Middleware;
 
 use Interop\Container\ContainerInterface;
-use League\OAuth2\Server\Middleware\ResourceServerMiddleware;
+use League\OAuth2\Server\Middleware\ResourceServerMiddleware as LeagueResourceServerMiddleware;
 use League\OAuth2\Server\ResourceServer;
 
 class ResourceServerMiddlewareFactory
@@ -19,6 +19,6 @@ class ResourceServerMiddlewareFactory
     {
         $server = $container->get(ResourceServer::class);
 
-        return new ResourceServerMiddleware($server);
+        return new ResourceServerMiddleware(new LeagueResourceServerMiddleware($server));
     }
 }

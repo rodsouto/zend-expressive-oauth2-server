@@ -44,8 +44,10 @@ class ModuleConfig
             'dependencies' => [
                 'factories' => [
                     \League\OAuth2\Server\ResourceServer::class => \OAuth2Server\Server\ResourceServerFactory::class,
-                    \League\OAuth2\Server\Middleware\ResourceServerMiddleware::class => \OAuth2Server\Middleware\ResourceServerMiddlewareFactory::class,
                     \League\OAuth2\Server\AuthorizationServer::class => \OAuth2Server\Server\AuthorizationServerFactory::class,
+
+                    \OAuth2Server\Middleware\ResourceServerMiddleware::class => \OAuth2Server\Middleware\ResourceServerMiddlewareFactory::class,
+
 
                     \OAuth2Server\Action\AuthorizeAction::class => \OAuth2Server\Action\AuthorizeActionFactory::class,
                     \OAuth2Server\Action\AccessTokenAction::class => \OAuth2Server\Action\AccessTokenActionFactory::class,
