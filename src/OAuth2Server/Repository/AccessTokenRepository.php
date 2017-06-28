@@ -9,11 +9,11 @@
 
 namespace OAuth2Server\Repository;
 
+use Doctrine\ORM\EntityRepository;
 use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
 use OAuth2Server\Entity\AccessToken as AccessTokenEntity;
-use Doctrine\ORM\EntityRepository;
 use OAuth2Server\Entity\Scope as ScopeEntity;
 use OAuth2Server\Entity\User as UserEntity;
 
@@ -29,8 +29,7 @@ class AccessTokenRepository extends EntityRepository implements AccessTokenRepos
          */
         $user = null;
         if ($accessTokenEntity->getUserIdentifier()) {
-            $this->_em->getRepository(UserEntity::class)
-                ->findOneBy(['identifier' => $accessTokenEntity->getUserIdentifier()]);
+            $user = $this->_em->getRepository(UserEntity::class)->find($accessTokenEntity->getUserIdentifier());
         }
 
         $scopes = [];

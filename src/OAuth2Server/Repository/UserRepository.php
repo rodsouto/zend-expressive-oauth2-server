@@ -10,7 +10,7 @@
 namespace OAuth2Server\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use OAuth2Server\Entity\User;
+use OAuth2Server\Entity\User as UserEntity;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\UserRepositoryInterface;
 
@@ -25,14 +25,16 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
         $grantType,
         ClientEntityInterface $clientEntity
     ) {
-        $qb = $this->_em->createQueryBuilder();
-        $qb->select('U');
-        $qb->from(User::class, 'U')
-            ->andWhere('U.username = :username AND U.password = :password')
-            ->setParameter('username', $username)
-            ->setParameter('password', $password);
-        $query = $qb->getQuery();
+        $user = $this->_em->getRepository(UserEntity::class)->findOneBy(['username' => $username]);
 
-        return $query->getOneOrNullResult();
+        if(!$user) {
+            return;
+        }
+
+        if (!password_verify($password, $user->getPassword())) {
+            return;
+        }
+
+        return $user;
     }
 }

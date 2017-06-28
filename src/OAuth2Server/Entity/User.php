@@ -26,7 +26,6 @@ class User implements UserEntityInterface
      */
     protected $username;
 
-
     /**
      * @var string
      * @ORM\Column(name="password", type="string", length=100)
@@ -40,13 +39,7 @@ class User implements UserEntityInterface
         $this->setIdentifier($identifier);
     }
 
-    /**
-     * Return the user's identifier.
-     *
-     * @return mixed
-     */
-    public function getIdentifier()
-    {
-        return 1;
+    public function getPassword() {
+        return $this->password;
     }
 }
